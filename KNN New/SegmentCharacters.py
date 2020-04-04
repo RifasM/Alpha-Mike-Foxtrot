@@ -17,7 +17,7 @@ ax1.imshow(license_plate, cmap="gray")
 # a license plate should be between 5% and 15% of the license plate,
 # and height should be between 35% and 60%
 # this will eliminate some
-character_dimensions = (0.35*license_plate.shape[0], 0.60*license_plate.shape[0], 0.05*license_plate.shape[1], 0.15*license_plate.shape[1])
+character_dimensions = (0.10*license_plate.shape[0], 0.60*license_plate.shape[0], 0.05*license_plate.shape[1], 0.15*license_plate.shape[1])
 min_height, max_height, min_width, max_width = character_dimensions
 
 characters = []

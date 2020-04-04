@@ -146,7 +146,7 @@ if __name__ == '__main__':
     cap.release()
     """
 
-    img = cv2.imread("a.png")
+    img = cv2.imread("images/car6.jpg")
 
     threshold_img = preprocess(img)
     contours = extract_contours(threshold_img)
