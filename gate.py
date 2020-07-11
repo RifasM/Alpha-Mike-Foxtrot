@@ -9,12 +9,10 @@ class GateSpider(scrapy.Spider):
     start_urls = [
         "https://questions.examside.com",
     ]
-    """interesting_url = re.compile("https://questions.examside.com/
-                                    past-years/gate/question/
-                                    [\w-]+.htm")"""
-    interesting_url = re.compile("https://questions.examside.com/"
-                                 "past-years/gate/"
-                                 "gate-ece/[\\w-]+/[\\w-]+")
+    interesting_url = re.compile("https://questions.examside.com"
+                                 "/past-years/gate/"
+                                 "question/[\\w-]+.htm")
+
     links = []
 
     def parse(self, response):
