@@ -1,3 +1,5 @@
+import csv
+
 import scrapy
 import re
 
@@ -7,9 +9,12 @@ class GateSpider(scrapy.Spider):
     start_urls = [
         "https://questions.examside.com",
     ]
+    """interesting_url = re.compile("https://questions.examside.com/
+                                    past-years/gate/question/
+                                    [\w-]+.htm")"""
     interesting_url = re.compile("https://questions.examside.com/"
                                  "past-years/gate/"
-                                 "gate-\\w{2,3}/[\\w-]+/[\\w-]+")
+                                 "gate-ece/[\\w-]+/[\\w-]+")
     links = []
 
     def parse(self, response):
@@ -24,6 +29,9 @@ class GateSpider(scrapy.Spider):
             yield response.follow(self.start_urls[0]+next_page, self.parse)
 
     print("Completed!")
-    print("Interesting links: ")
-    for link in links:
-        print(link)
+    print("Writing to csv File: ")
+
+    with open('gate.csv', 'w') as csvFile:
+        writer = csv.writer(csvFile)
+        writer.writerows(links)
+        csvFile.close()
