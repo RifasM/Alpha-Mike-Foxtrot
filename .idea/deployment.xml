@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Hosting AWS">
+  <component name="PublishConfigData" serverName="CV Training">
     <serverData>
       <paths name="CV Training">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="attendance/Face-Attendance-System" local="$PROJECT_DIR$/Face-Attendance-System" web="/" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="Hosting AWS">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_555" local="$PROJECT_DIR$" />
+            <mapping deploy="/" local="$PROJECT_DIR$/" />
           </mappings>
         </serverdata>
       </paths>
