@@ -5,7 +5,7 @@ import re
 class GateSpider(scrapy.Spider):
     name = "gate_spider"
     start_urls = [
-        "https://www.gatequestions.com/",
+        "https://questions.examside.com",
     ]
     interesting_url = re.compile("https://questions.examside.com/"
                                  "past-years/gate/"
@@ -13,12 +13,15 @@ class GateSpider(scrapy.Spider):
     links = []
 
     def parse(self, response):
-        for link in response.css("a"):
-            if re.fullmatch(self.interesting_url, str(link)):
+        anchor = response.css("a::attr(href)").getall()
+        for link in anchor:
+            link = self.start_urls[0] + link
+            if re.match(self.interesting_url, str(link)):
+                print(">>> Link found!\n\tAppending")
                 self.links.append(link)
 
-        for next_page in response.css('a'):
-            yield response.follow(next_page, self.parse)
+        for next_page in anchor:
+            yield response.follow(self.start_urls[0]+next_page, self.parse)
 
     print("Completed!")
     print("Interesting links: ")
