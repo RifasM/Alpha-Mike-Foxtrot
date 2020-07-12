@@ -26,10 +26,10 @@ class GateSpider(scrapy.Spider):
         for next_page in anchor:
             yield response.follow(self.start_urls[0]+next_page, self.parse)
 
-    print("Completed!")
-    print("Writing to csv File: ")
+        print("Completed!")
+        print("Writing to csv File: ")
 
-    with open('gate.csv', 'w') as csvFile:
-        writer = csv.writer(csvFile)
-        writer.writerows(links)
-        csvFile.close()
+        with open('gate.csv', 'w') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerows(self.links)
+            csvFile.close()
